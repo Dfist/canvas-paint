@@ -12,8 +12,9 @@ Current Functionality
 -------------------------
  * Mouse Movement Detection on Canvas 
  * Pencil Tool
- * Circle Tool
-
+ * Circle Tool with animation
+ * Tool Switching
+ * Double Canvas to elimate redrawing background when animating
 
 Todo
 -------------------------
