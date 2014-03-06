@@ -1,6 +1,7 @@
 Canvas-Paint
 =====================
 Paint Plug-in for HTML5 using jQuery
+
 jQuery Version 2.1.0
 
 Browsers Currently Tested
