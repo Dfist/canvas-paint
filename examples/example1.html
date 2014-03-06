@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+    <title> Canvas Drawing!! </title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="../../jquery-2.1.0.js"></script>
+    <script type="text/javascript" src="../lib/canvas-paint.js"></script>
+ </head>
+
+ <body>
+
+  <canvas id="board" height=500 width=1000 style="border:1px solid; background-color:white"></canvas>
+
+  <div id="Log">
+    Output Here
+  </div>
+
+ <script>
+   $(document).ready(function() {  
+      $("#board").draw_on();
+   });   
+ </script>
+ </body>
+
+</html>
