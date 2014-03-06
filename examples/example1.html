@@ -10,6 +10,14 @@
 
  <body>
 
+  <div id="#toolbar">
+    <FORM>
+      <INPUT type="button" value="Clear" name="button2" onClick="$('#board').clear_canvas();">
+      <INPUT type="button" value="Pencil" name="button1" onClick="alert('Currently Enabled');">
+    </FORM> 
+
+  </div>
+
   <canvas id="board" height=500 width=1000 style="border:1px solid; background-color:white"></canvas>
 
   <div id="Log">
@@ -20,6 +28,7 @@
    $(document).ready(function() {  
       $("#board").draw_on();
    });   
+   
  </script>
  </body>
 
