@@ -15,6 +15,8 @@ Current Functionality
  * Circle Tool with animation
  * Tool Switching
  * Double Canvas to elimate redrawing background when animating
+ * Rectangle Tool with animation
+ * Color Switcher functionality
 
 Todo
 -------------------------
