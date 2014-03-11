@@ -26,16 +26,16 @@
    <div class="sidebar">
        <li></li>
     <div>
-       <li class="place" id="shapes">  </li>
+       <li class="place" id="shapes"></li>
     </div>
        <li></li>
-       <li class="place" id="colors">  </li>
+       <li class="place" id="colors"></li>
        <li></li>
-       <li class="place" id="pencil">  </li>
+       <li class="place" id="pencil"></li>
        <li></li>
-       <li class="place" id="eraser">  </li>
+       <li class="place" id="eraser"></li>
        <li></li>
-       <li class="place" id="tbd">  </li>
+       <li class="place" id="tbd"></li>
    </div>
     
    <div class="content">
@@ -43,48 +43,41 @@
        <canvas id="upperboard" height=500 width=1000 style=" position: absolute; left: 50; top: 100; z-index: 1"></canvas>
    </div>
 
- <div class="preview" id="popup">
-   hi
- </div>
+ <div class="preview" id="popup"></div>
+
  </div>
 
 
  <script>
    $(document).ready(function() {  
-      $("#upperboard").draw_on("#lowerboard");
+       $("#upperboard").draw_on("#lowerboard");
 
-      $("#shapes").on({
-          mouseenter: function() {
-              move_popup($("#shapes"));
-          },
-          mouseleave: function() {
-              $("#shapes").css({"background": "url('./p.png')"});
-          }
-      });
-
-      $("#colors").hover(function() {
-          move_popup($("#colors"));
-      });
-
-      $("#pencil").hover(function() {
-          move_popup($("#pencil"));
-      });
+       var mouse_preview  =  {
+           mouseenter: function(e) {
+               move_popup($(this), $(this).attr('id'));
+           },
+           mouseleave: function() {
+               $(this).css({"background": "url('./p.png')"});
+               $("#popup").css({"display":"none"});
+           }
+       }
        
-      $("#eraser").hover(function() {
-          move_popup($("#eraser"));
-      });
+       $("#shapes").on(mouse_preview);
+       $("#colors").on(mouse_preview);
+       $("#pencil").on(mouse_preview);
+       $("#eraser").on(mouse_preview);
 
        $("#tbd").hover(function() {
-          $("#popup").css({"display":"none"});
-      });
+           $("#popup").css({"display":"none"});
+       });
 
-      function move_popup(button) {
-          button.css({"background": "url('./phover.png')"});
-          var offset =  button.position();
-          $("#popup").html(offset.top + ":" + offset.left);
-          $("#popup").css({"top":offset.top+"px"});
-          $("#popup").css({"display":"block"});
-      }
+       function move_popup(button, string) {
+           button.css({"background": "url('./phover.png')"});
+           var offset =  button.position();
+           $("#popup").html("<center>" + string + "</center>");
+           $("#popup").css({"top":offset.top+"px"});
+           $("#popup").css({"display":"block"});          
+       }
    });
 
    
