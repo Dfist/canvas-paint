@@ -25,9 +25,7 @@
  <div class="container">
    <div class="sidebar">
        <li></li>
-    <div>
        <li class="place" id="shapes"></li>
-    </div>
        <li></li>
        <li class="place" id="colors"></li>
        <li></li>
@@ -67,6 +65,22 @@
        $("#pencil").on(mouse_preview);
        $("#eraser").on(mouse_preview);
 
+       $("#shapes").click(function() {
+           $('#upperboard').switch_tool('circle');
+       });
+
+       $("#pencil").click(function() {
+           $('#upperboard').switch_tool('pencil');
+       });
+
+       $("#colors").click(function() {
+           $('#upperboard').switch_color('#FF99FF');
+       });
+       
+       $("#eraser").click(function() {
+           $('#lowerboard').clear_canvas();
+       });
+       
        $("#tbd").hover(function() {
            $("#popup").css({"display":"none"});
        });
