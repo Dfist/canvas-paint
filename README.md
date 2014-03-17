@@ -17,6 +17,8 @@ Current Functionality
  * Double Canvas to elimate redrawing background when animating
  * Rectangle Tool with animation
  * Color Switcher functionality
+ * Hover over mechanic for button
+ * Placeholder Images
 
 Todo
 -------------------------
