@@ -31,7 +31,7 @@
        <li></li>
        <li class="place" id="pencil"></li>
        <li></li>
-       <li class="place" id="eraser"></li>
+       <li class="place" id="clear"></li>
        <li></li>
        <li class="place" id="tbd"></li>
    </div>
@@ -42,17 +42,26 @@
    </div>
 
  <div class="preview" id="popup"></div>
+ <div class="preview" id="select"></div>
 
  </div>
 
 
  <script>
+    
+    function switch_and_close(tool) {
+        $('#upperboard').switch_tool(tool);
+        $("#select").css({"display":"none"});
+    }
+
    $(document).ready(function() {  
+   
        $("#upperboard").draw_on("#lowerboard");
 
        var mouse_preview  =  {
            mouseenter: function(e) {
                move_popup($(this), $(this).attr('id'));
+               $("#select").css({"display":"none"});
            },
            mouseleave: function() {
                $(this).css({"background": "url('./p.png')"});
@@ -63,17 +72,20 @@
        $("#shapes").on(mouse_preview);
        $("#colors").on(mouse_preview);
        $("#pencil").on(mouse_preview);
-       $("#eraser").on(mouse_preview);
+       $("#clear").on(mouse_preview);
 
        $("#shapes").click(function() {
-           $('#upperboard').switch_tool('circle');
+           var html ='<INPUT type="button" value="Circle" name="button1" onClick="switch_and_close(\'circle\');">'
+           html += '<INPUT type="button" value="Rect" name="button1" onClick="switch_and_close(\'rectangle\');">'
+           $("#select").css({"display":"block"});
+           $("#select").html(html);
        });
 
        $("#pencil").click(function() {
            $('#upperboard').switch_tool('pencil');
        });
 
-       $("#colors").click(function() {
+       $("#colors").click(function() {           
            $('#upperboard').switch_color('#FF99FF');
        });
        
@@ -85,11 +97,14 @@
            $("#popup").css({"display":"none"});
        });
 
+
+
        function move_popup(button, string) {
            button.css({"background": "url('./phover.png')"});
            var offset =  button.position();
            $("#popup").html("<center>" + string + "</center>");
            $("#popup").css({"top":offset.top+"px"});
+           $("#select").css({"top":offset.top+"px"});
            $("#popup").css({"display":"block"});          
        }
    });
